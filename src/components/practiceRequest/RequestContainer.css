@@ -1,0 +1,18 @@
+.btn-primary {
+  padding: 7px 60px;
+  border-radius: 1.5rem;
+  background-color: #072079;
+}
+
+.btn-secondary {
+  padding: 7px 60px;
+  border-radius: 1.5rem;
+}
+
+.form-select {
+  width: 625px;
+}
+
+.container {
+  text-align: center;
+}
