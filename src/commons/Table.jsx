@@ -1,18 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ModalDelete from "./ModalDelete";
+import "./Table.css";
 
 const Table = (props) => {
   return (
     <>
-      <table className="table table-hover">
-        <thead className="table-light">
+      <table className="table table-hover ">
+        <thead className="table-light ">
           <tr>
-            <th>Id</th>
-            <th>Uno</th>
-            <th>Dos</th>
-            <th>Tres</th>
-            <th>Acciones</th>
+            <th scope="col ">Id</th>
+            <th scope="col ">Uno</th>
+            <th scope="col ">Dos</th>
+            <th scope="col ">Tres</th>
+            <th scope="col ">Acciones</th>
           </tr>
         </thead>
         <tbody>

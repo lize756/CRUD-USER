@@ -176,7 +176,7 @@ const RequestContainer = (props) => {
       <form onSubmit={printValues}>
         <div className="row px-5 gx-5">
           <div className="p-3 col-sm-6 ">
-            <div className=" col-sm-6  pull-left">
+            <div className="textType p-2 col-sm-6  pull-left">
               <label htmlFor="validationDefault01">
                 Carrera a solicitar practica
               </label>
@@ -199,7 +199,7 @@ const RequestContainer = (props) => {
           </div>
 
           <div className="p-3 col-sm-6 ">
-            <div className=" col-sm-6  pull-left">
+            <div className="textType p-2 col-sm-6  pull-left">
               <label htmlFor="validationDefault01">
                 Número de practicantes
               </label>
@@ -221,7 +221,7 @@ const RequestContainer = (props) => {
           </div>
 
           <div className="p-3 col-sm-6 ">
-            <div className="col-sm-6  pull-left">
+            <div className="textType p-2 col-sm-6  pull-left">
               <label htmlFor="validationServer01">
                 Salario de los practicante
               </label>
@@ -229,7 +229,7 @@ const RequestContainer = (props) => {
 
             <input
               type="text"
-              className="form-control form-control-sm"
+              className="textLabel form-control form-control-sm"
               placeholder="0"
               value={dataVariable.wage}
               id="wage"
@@ -238,7 +238,7 @@ const RequestContainer = (props) => {
           </div>
 
           <div className="p-3 col-sm-6 ">
-            <div className="col-sm-6  pull-left">
+            <div className="textType p-2 col-sm-6  pull-left">
               <label htmlFor="validationDefault01">
                 Duración de la practica
               </label>
@@ -260,11 +260,14 @@ const RequestContainer = (props) => {
           </div>
 
           <div className="p-3 form-group">
-            <label htmlFor="exampleFormControlTextarea1">
-              Descripción de la practica
-            </label>
+            <div className="textType p-2">
+              <label htmlFor="exampleFormControlTextarea1">
+                Descripción de la practica
+              </label>
+            </div>
+
             <textarea
-              className="form-control"
+              className="textArea form-control"
               rows="3"
               value={dataVariable.detail}
               id="detail"
@@ -273,11 +276,14 @@ const RequestContainer = (props) => {
           </div>
 
           <div className="p-3 form-group">
-            <label htmlFor="exampleFormControlTextarea1">
-              Habilidades requeridas para la practica
-            </label>
+            <div className="textType p-2">
+              <label htmlFor="exampleFormControlTextarea1">
+                Habilidades requeridas para la practica
+              </label>
+            </div>
+
             <textarea
-              className="form-control"
+              className="textArea form-control"
               id="skills"
               rows="3"
               onChange={handleVariable}
