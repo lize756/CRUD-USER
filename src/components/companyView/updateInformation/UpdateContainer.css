@@ -1,0 +1,14 @@
+.updateContainer label {
+  font-weight: 700;
+}
+
+.updateContainer input {
+  border: 2px solid #072079;
+}
+
+.updateContainer btn-primary {
+  padding: 7px 70px;
+  border-radius: 1.5rem;
+  background-color: #072079;
+  text-align: center;
+}

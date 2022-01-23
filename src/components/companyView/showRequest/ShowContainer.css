@@ -1,12 +1,13 @@
-.textType {
+label {
   font-weight: 700;
+  text-align: left;
 }
 
 .textArea {
   border: 2px solid #072079;
 }
 
-.textLabel {
+.showText {
   border: 2px solid #072079;
   width: 620px;
 }

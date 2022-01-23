@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 
 const ShowPromContainer = () => {
   const [dataVariable, setDataVariable] = useState({
+    name: "Lorem ipsum dolor",
+    email: "correo@email.com",
+    nit: "12233444",
+    phone: "123444",
+    nameRequest: "Lorem ipsum dolor",
     career: " Lorem ipsum dolor sit amet",
     practice: " 3 ",
     duraction: "1 Año",
@@ -24,23 +29,81 @@ const ShowPromContainer = () => {
         <div className="row px-5 gx-5">
           <div className="p-3 col-sm-6 ">
             <div className="textType p-2 col-sm-6  pull-left">
+              <label htmlFor="validationDefault01">Nombre empresa</label>
+            </div>
+
+            <div className="textLabel p-2  col-sm-6">
+              <label htmlFor="validationDefault01">{dataVariable.name}</label>
+            </div>
+          </div>
+
+          <div className="p-3 col-sm-6 ">
+            <div className="textType p-2">
+              <label htmlFor="validationDefault01">Nit empresa</label>
+            </div>
+
+            <div className="textLabel p-2">
+              <label htmlFor="validationDefault01">{dataVariable.nit}</label>
+            </div>
+          </div>
+
+          <div className="p-3 col-sm-6 ">
+            <div className="textType p-2">
+              <label htmlFor="validationDefault01">
+                Correo electronico de la empresa
+              </label>
+            </div>
+
+            <div className="textLabel p-2">
+              <label htmlFor="validationDefault01">{dataVariable.email}</label>
+            </div>
+          </div>
+
+          <div className="p-3 col-sm-6">
+            <div className="textType p-2">
+              <label htmlFor="validationDefault01">
+                Telefono de la empresa
+              </label>
+            </div>
+
+            <div className="textLabel p-2">
+              <label htmlFor="validationDefault01">{dataVariable.phone}</label>
+            </div>
+          </div>
+
+          <div className="p-3 col-sm-6">
+            <div className="textType p-2">
+              <label htmlFor="validationDefault01">
+                Nombre de la solicitud de practica
+              </label>
+            </div>
+
+            <div className="textLabel p-2">
+              <label htmlFor="validationDefault01">
+                {dataVariable.nameRequest}
+              </label>
+            </div>
+          </div>
+
+          <div className="p-3 col-sm-6 ">
+            <div className="textType p-2">
               <label htmlFor="validationDefault01">
                 Carrera a solicitar practica
               </label>
             </div>
 
-            <div className="textLabel p-2  col-sm-6">
+            <div className="textLabel p-2">
               <label htmlFor="validationDefault01">{dataVariable.career}</label>
             </div>
           </div>
 
           <div className="p-3 col-sm-6 ">
-            <div className="textType p-2 col-sm-6  pull-left">
+            <div className="textType p-2">
               <label htmlFor="validationDefault01">
                 Número de practicantes
               </label>
             </div>
-            <div className="textLabel p-2  col-sm-6">
+            <div className="textLabel p-2">
               <label htmlFor="validationDefault01">
                 {dataVariable.practice}
               </label>
@@ -48,25 +111,25 @@ const ShowPromContainer = () => {
           </div>
 
           <div className="p-3 col-sm-6 ">
-            <div className="textType p-2 col-sm-6  pull-left">
+            <div className="textType p-2">
               <label htmlFor="validationServer01">
                 Salario de los practicante
               </label>
             </div>
 
-            <div className="textLabel p-2  col-sm-6">
+            <div className="textLabel p-2">
               <label htmlFor="validationDefault01">{dataVariable.wage}</label>
             </div>
           </div>
 
           <div className="p-3 col-sm-6 ">
-            <div className="textType p-2 col-sm-6  pull-left">
+            <div className="textType p-2">
               <label htmlFor="validationDefault01">
                 Duración de la practica
               </label>
             </div>
 
-            <div className="textLabel p-2  col-sm-6">
+            <div className="textLabel p-2 ">
               <label htmlFor="validationDefault01">
                 {dataVariable.duraction}
               </label>
@@ -111,11 +174,9 @@ const ShowPromContainer = () => {
         <div className="container ">
           <div className="row justify-content-center p-3">
             <div className="col-4 p-3 ">
-              <Link to="/update-request">
-                <button className="btn btn-primary" type="submit">
-                  Editar
-                </button>
-              </Link>
+              <button className="btn btn-primary" type="submit">
+                Descargar
+              </button>
             </div>
             <div className="col-4 p-3">
               <button type="button" className="btn btn-secondary">

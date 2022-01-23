@@ -25,12 +25,15 @@ const UpdateContainer = () => {
   return (
     <>
       <form onSubmit={printValues}>
-        <div className="row px-5 gx-5">
+        <div className="updateContainer row px-5 gx-5">
           <div className="p-3 col-sm-6">
-            <label htmlFor="formGroupExampleInput">Nombre Empresa</label>
+            <div className="p-2">
+              <label htmlFor="formGroupExampleInput">Nombre Empresa</label>
+            </div>
+
             <input
               type="text"
-              className="form-control"
+              className="form-control-sm"
               placeholder=" "
               value={data.name}
               id="name"
@@ -39,11 +42,14 @@ const UpdateContainer = () => {
           </div>
 
           <div className="p-3 col-sm-6">
-            <label htmlFor="formGroupExampleInput">Nit</label>
+            <div className="p-2">
+              <label htmlFor="formGroupExampleInput">Nit</label>
+            </div>
+
             <input
               type="text"
-              className="form-control"
-              placeholder=" "
+              className="form-control-sm"
+              placeholder="123###### "
               value={data.nit}
               id="nit"
               onChange={handleVariable}
@@ -51,10 +57,14 @@ const UpdateContainer = () => {
           </div>
 
           <div className="p-3 col-sm-6">
-            <label htmlFor="inputAddress">Direccion</label>
+            <div className="p-2">
+              {" "}
+              <label htmlFor="inputAddress">Direccion</label>
+            </div>
+
             <input
               type="text"
-              className="form-control"
+              className="form-control-sm"
               id="inputAddress"
               placeholder="1234 Main St"
               value={data.address}
@@ -64,10 +74,16 @@ const UpdateContainer = () => {
           </div>
 
           <div className="p-3 col-sm-6">
-            <label htmlFor="formGroupExampleInput">Numero Telefonico</label>
+            <div className="p-2">
+              {" "}
+              <label htmlFor="formGroupExampleInput">
+                Numero Telefonico
+              </label>{" "}
+            </div>
+
             <input
               type="text"
-              className="form-control"
+              className="form-control-sm"
               placeholder=" 3444444 "
               value={data.number}
               id="number"
@@ -76,11 +92,17 @@ const UpdateContainer = () => {
           </div>
 
           <div className="p-3 col-sm-6">
-            <label htmlFor="formGroupExampleInput">Correo Electronico</label>
+            <div className="p-2">
+              {" "}
+              <label htmlFor="formGroupExampleInput">
+                Correo Electronico
+              </label>{" "}
+            </div>
+
             <input
               type="email"
-              className="form-control"
-              placeholder=" Email "
+              className="form-control-sm"
+              placeholder=" Email@correo.com "
               value={data.email}
               id="email"
               onChange={handleVariable}
@@ -88,7 +110,7 @@ const UpdateContainer = () => {
           </div>
         </div>
         <div className="container">
-          <div className="p-4 ">
+          <div className="p-5 ">
             <button className="btn btn-primary" type="submit">
               Actualizar
             </button>

@@ -1,19 +1,40 @@
 .btn-primary {
-  padding: 7px 60px;
+  padding: 7px 70px;
   border-radius: 1.5rem;
   background-color: #072079;
+  text-align: center;
 }
 
 .btn-secondary {
   padding: 7px 60px;
   border-radius: 1.5rem;
+  text-align: center;
 }
 
 .form-select {
   width: 625px;
-  border: 2px solid #072079;
+  border: px solid #072079;
 }
 
 .container {
   text-align: center;
+}
+
+Label {
+  font-weight: 700;
+  text-align: left;
+}
+
+.form-control-sm {
+  width: 100%;
+  border: 2px solid #072079;
+}
+
+.form-select-sm {
+  width: 100%;
+  border: 2px solid #072079;
+}
+
+.form-control {
+  border: 2px solid #072079;
 }

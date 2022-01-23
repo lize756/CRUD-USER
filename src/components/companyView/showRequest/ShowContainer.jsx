@@ -23,24 +23,24 @@ const ShowContainer = () => {
       <form onSubmit={printValues}>
         <div className="row px-5 gx-5">
           <div className="p-3 col-sm-6 ">
-            <div className="textType p-2 col-sm-6  pull-left">
+            <div className=" p-2">
               <label htmlFor="validationDefault01">
                 Carrera a solicitar practica
               </label>
             </div>
 
-            <div className="textLabel p-2  col-sm-6">
+            <div className="showText p-2 col-sm-6">
               <label htmlFor="validationDefault01">{dataVariable.career}</label>
             </div>
           </div>
 
           <div className="p-3 col-sm-6 ">
-            <div className="textType p-2 col-sm-6  pull-left">
+            <div className="p-2">
               <label htmlFor="validationDefault01">
                 Número de practicantes
               </label>
             </div>
-            <div className="textLabel p-2  col-sm-6">
+            <div className="showText p-2 col-sm-6">
               <label htmlFor="validationDefault01">
                 {dataVariable.practice}
               </label>

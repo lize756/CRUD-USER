@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import "./RequestContainer.css";
 
 const RequestContainer = (props) => {
-  const [selectedCareer, setSelectedCareer] = useState();
-  const [selectedNumber, setSelectedNumber] = useState();
-  const [selectedDuration, setSelectedDuration] = useState();
+  const [selects, setSelects] = useState({
+    selectedCareer: "",
+    selectedNumber: "",
+    selectedDuration: "",
+  });
+
   const [dataVariable, setDataVariable] = useState({
     nameRequest: "",
     city: "",
@@ -145,9 +148,9 @@ const RequestContainer = (props) => {
   const printValues = (e) => {
     e.preventDefault();
     console.log(
-      selectedCareer,
-      selectedNumber,
-      selectedDuration,
+      selects.selectedCareer,
+      selects.selectedNumber,
+      selects.selectedDuration,
       dataVariable.wage,
       dataVariable.detail,
       dataVariable.skills,
@@ -163,179 +166,182 @@ const RequestContainer = (props) => {
     });
   };
 
-  const handleChangeCareer = (e) => {
-    setSelectedCareer(e.target.value);
-  };
-
-  const handleChangeNumber = (e) => {
-    setSelectedNumber(e.target.value);
-  };
-
-  const handleChangeDuration = (e) => {
-    setSelectedDuration(e.target.value);
+  const handleSelect = (e) => {
+    setSelects({
+      ...selects,
+      [e.target.id]: e.target.value,
+    });
   };
 
   return (
     <>
       <form onSubmit={printValues}>
-        <div className="row px-5 gx-5">
-          <div className="p-3 col-sm-6 ">
-            <div className="textType p-2 col-sm-6  pull-left">
-              <label htmlFor="validationServer01">Nombre de la practica</label>
+        <div className="requestContainer">
+          <div className="row px-5 gx-5">
+            <div className="p-3 col-sm-6 ">
+              <div className="p-2">
+                <label htmlFor="validationServer01">
+                  Nombre de la practica
+                </label>
+              </div>
+
+              <input
+                type="text"
+                className="form-control-sm"
+                placeholder="Vacante ..."
+                value={dataVariable.nameRequest}
+                id="nameRequest"
+                onChange={handleVariable}
+              />
             </div>
 
-            <input
-              type="text"
-              className="textLabel form-control form-control-sm"
-              placeholder="Vacante ..."
-              value={dataVariable.nameRequest}
-              id="nameRequest"
-              onChange={handleVariable}
-            />
+            <div className="p-3 col-sm-6 ">
+              <div className="p-2">
+                <label htmlFor="validationServer01">
+                  Ciudad de la practica
+                </label>
+              </div>
+
+              <input
+                type="text"
+                className="form-control-sm"
+                placeholder="Cali"
+                value={dataVariable.city}
+                id="city"
+                onChange={handleVariable}
+              />
+            </div>
+
+            <div className="p-3 col-sm-6 ">
+              <div className="p-2">
+                <label htmlFor="validationDefault01">
+                  Carrera a solicitar practica
+                </label>
+              </div>
+
+              <select
+                className="form-select-sm"
+                aria-label=".form-select-sm"
+                placeholder="Seleccionar una carrera"
+                value={selects.selectedCareer}
+                id="selectedCareer"
+                onChange={handleSelect}
+              >
+                {careers.map((career) => (
+                  <option value={career.value} key={career.value}>
+                    {career.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="p-3 col-sm-6 ">
+              <div className="p-2 ">
+                <label htmlFor="validationDefault01">
+                  Número de practicantes
+                </label>
+              </div>
+
+              <select
+                className="form-select-sm"
+                aria-label=".form-select-sm example"
+                placeholder="Selecciona el número de practicantes"
+                value={selects.selectedNumber}
+                id="selectedNumber"
+                onChange={handleSelect}
+              >
+                {numbers.map((number) => (
+                  <option value={number.value} key={number.value}>
+                    {number.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="p-3 col-sm-6 ">
+              <div className="p-2">
+                <label htmlFor="validationServer01">
+                  Salario de los practicante
+                </label>
+              </div>
+
+              <input
+                type="text"
+                className="form-control-sm"
+                placeholder="0"
+                value={dataVariable.wage}
+                id="wage"
+                onChange={handleVariable}
+              />
+            </div>
+
+            <div className="p-3 col-sm-6 ">
+              <div className="p-2">
+                <label htmlFor="validationDefault01">
+                  Duración de la practica
+                </label>
+              </div>
+
+              <select
+                className="form-select-sm"
+                aria-label=".form-select-sm "
+                placeholder="Selecciona una duración"
+                value={selects.selectedDuration}
+                id="selectedDuration"
+                onChange={handleSelect}
+              >
+                {durations.map((duration) => (
+                  <option value={duration.value} key={duration.value}>
+                    {duration.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="p-3 form-group">
+              <div className="p-2">
+                <label htmlFor="exampleFormControlTextarea1">
+                  Descripción de la practica
+                </label>
+              </div>
+
+              <textarea
+                className="form-control"
+                rows="3"
+                value={dataVariable.detail}
+                id="detail"
+                onChange={handleVariable}
+              ></textarea>
+            </div>
+
+            <div className="p-3 form-group">
+              <div className="p-2">
+                <label htmlFor="exampleFormControlTextarea1">
+                  Habilidades requeridas para la practica
+                </label>
+              </div>
+
+              <textarea
+                className="form-control"
+                id="skills"
+                rows="3"
+                onChange={handleVariable}
+              ></textarea>
+            </div>
           </div>
 
-          <div className="p-3 col-sm-6 ">
-            <div className="textType p-2 col-sm-6  pull-left">
-              <label htmlFor="validationServer01">Ciudad practica</label>
-            </div>
-
-            <input
-              type="text"
-              className="textLabel form-control form-control-sm"
-              placeholder="Cali"
-              value={dataVariable.city}
-              id="city"
-              onChange={handleVariable}
-            />
-          </div>
-
-          <div className="p-3 col-sm-6 ">
-            <div className="textType p-2 col-sm-6  pull-left">
-              <label htmlFor="validationDefault01">
-                Carrera a solicitar practica
-              </label>
-            </div>
-
-            <select
-              className="form-select form-select-sm"
-              aria-label=".form-select-sm example"
-              style={{ width: "100%" }}
-              placeholder="Seleccionar una carrera"
-              value={selectedCareer}
-              onChange={handleChangeCareer}
-            >
-              {careers.map((career) => (
-                <option value={career.value} key={career.value}>
-                  {career.label}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="p-3 col-sm-6 ">
-            <div className="textType p-2 col-sm-6  pull-left">
-              <label htmlFor="validationDefault01">
-                Número de practicantes
-              </label>
-            </div>
-
-            <select
-              className="form-select form-select-sm"
-              aria-label=".form-select-sm example"
-              placeholder="Selecciona el número de practicantes"
-              value={selectedNumber}
-              onChange={handleChangeNumber}
-            >
-              {numbers.map((number) => (
-                <option value={number.value} key={number.value}>
-                  {number.label}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="p-3 col-sm-6 ">
-            <div className="textType p-2 col-sm-6  pull-left">
-              <label htmlFor="validationServer01">
-                Salario de los practicante
-              </label>
-            </div>
-
-            <input
-              type="text"
-              className="textLabel form-control form-control-sm"
-              placeholder="0"
-              value={dataVariable.wage}
-              id="wage"
-              onChange={handleVariable}
-            />
-          </div>
-
-          <div className="p-3 col-sm-6 ">
-            <div className="textType p-2 col-sm-6  pull-left">
-              <label htmlFor="validationDefault01">
-                Duración de la practica
-              </label>
-            </div>
-
-            <select
-              className="form-select form-select-sm"
-              aria-label=".form-select-sm example"
-              placeholder="Selecciona una duración"
-              value={selectedDuration}
-              onChange={handleChangeDuration}
-            >
-              {durations.map((duration) => (
-                <option value={duration.value} key={duration.value}>
-                  {duration.label}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="p-3 form-group">
-            <div className="textType p-2">
-              <label htmlFor="exampleFormControlTextarea1">
-                Descripción de la practica
-              </label>
-            </div>
-
-            <textarea
-              className="textArea form-control"
-              rows="3"
-              value={dataVariable.detail}
-              id="detail"
-              onChange={handleVariable}
-            ></textarea>
-          </div>
-
-          <div className="p-3 form-group">
-            <div className="textType p-2">
-              <label htmlFor="exampleFormControlTextarea1">
-                Habilidades requeridas para la practica
-              </label>
-            </div>
-
-            <textarea
-              className="textArea form-control"
-              id="skills"
-              rows="3"
-              onChange={handleVariable}
-            ></textarea>
-          </div>
-        </div>
-
-        <div className="container ">
-          <div className="row justify-content-center p-3">
-            <div className="col-4 p-3 ">
-              <button className="btn btn-primary" type="submit">
-                {props.name}
-              </button>
-            </div>
-            <div className="col-4 p-3">
-              <button type="button" className="btn btn-secondary">
-                Cancelar
-              </button>
+          <div className="container ">
+            <div className="row justify-content-center p-3">
+              <div className="col-4 p-3 ">
+                <button className="btn btn-primary" type="submit">
+                  {props.name}
+                </button>
+              </div>
+              <div className="col-4 p-3">
+                <button type="button" className="btn btn-secondary">
+                  Cancelar
+                </button>
+              </div>
             </div>
           </div>
         </div>
