@@ -6,6 +6,8 @@ const RequestContainer = (props) => {
   const [selectedNumber, setSelectedNumber] = useState();
   const [selectedDuration, setSelectedDuration] = useState();
   const [dataVariable, setDataVariable] = useState({
+    nameRequest: "",
+    city: "",
     wage: "",
     detail: "",
     skills: "",
@@ -148,7 +150,9 @@ const RequestContainer = (props) => {
       selectedDuration,
       dataVariable.wage,
       dataVariable.detail,
-      dataVariable.skills
+      dataVariable.skills,
+      dataVariable.nameRequest,
+      dataVariable.city
     );
   };
 
@@ -175,6 +179,36 @@ const RequestContainer = (props) => {
     <>
       <form onSubmit={printValues}>
         <div className="row px-5 gx-5">
+          <div className="p-3 col-sm-6 ">
+            <div className="textType p-2 col-sm-6  pull-left">
+              <label htmlFor="validationServer01">Nombre de la practica</label>
+            </div>
+
+            <input
+              type="text"
+              className="textLabel form-control form-control-sm"
+              placeholder="Vacante ..."
+              value={dataVariable.nameRequest}
+              id="nameRequest"
+              onChange={handleVariable}
+            />
+          </div>
+
+          <div className="p-3 col-sm-6 ">
+            <div className="textType p-2 col-sm-6  pull-left">
+              <label htmlFor="validationServer01">Ciudad practica</label>
+            </div>
+
+            <input
+              type="text"
+              className="textLabel form-control form-control-sm"
+              placeholder="Cali"
+              value={dataVariable.city}
+              id="city"
+              onChange={handleVariable}
+            />
+          </div>
+
           <div className="p-3 col-sm-6 ">
             <div className="textType p-2 col-sm-6  pull-left">
               <label htmlFor="validationDefault01">

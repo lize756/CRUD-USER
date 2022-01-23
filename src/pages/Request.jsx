@@ -1,9 +1,6 @@
 import React from "react";
-import RequestContainer from "./RequestContainer";
-import GeneralTittle from "../mainContainer/GeneralTitle";
-import Banner from "../../commons/Banner";
-import Navbar from "../../commons/Navbar";
-import { type } from "@testing-library/user-event/dist/type";
+import RequestContainer from "../components/companyView/practiceRequest/RequestContainer";
+import GeneralTittle from "../components/mainContainer/GeneralTitle";
 
 const Request = (props) => {
   let { type } = props;

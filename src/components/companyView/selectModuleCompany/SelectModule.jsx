@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Interns from "../../assets/interns.png";
+
+import Interns from "../../../assets/interns.png";
 import "./SelectModule.css";
-import GeneralTitle from "../mainContainer/GeneralTitle";
-import CardModule from "../../commons/CardModule";
+import GeneralTitle from "../../mainContainer/GeneralTitle";
+import CardModule from "../../../commons/CardModule";
 
 const SelectModule = () => {
   return (

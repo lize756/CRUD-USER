@@ -1,12 +1,13 @@
 import React from "react";
 import Banner from "../commons/Banner";
 import Navbar from "../commons/Navbar";
-import CreateRequest from "../components/practiceRequest/Request";
+import CreateRequest from "../pages/Request";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SelectModule from "../components/selectModuleCompany/SelectModule";
-import TableRequest from "../components/seePracticeRequest/TableRequest";
-import UpdateInformation from "../components/updateInformation/UpdateInformation";
-import ShowRequest from "../components/showRequest/ShowRequest";
+import SelectModule from "../components/companyView/selectModuleCompany/SelectModule";
+import TableRequest from "../components/companyView/seePracticeRequest/TableRequest";
+import UpdateInformation from "../pages/UpdateInformation";
+import ShowRequest from "../pages/ShowRequest";
+import ShowPromRequest from "../pages/ShowPromRequest";
 
 const Main = () => {
   return (
@@ -29,6 +30,7 @@ const Main = () => {
             path="/update-request"
             element={<CreateRequest type={false} />}
           />
+          <Route path="/show-prom-request" element={<ShowPromRequest />} />
         </Routes>
       </Router>
     </>

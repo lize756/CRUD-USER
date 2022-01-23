@@ -1,7 +1,7 @@
 import React from "react";
-import InputSearch from "../../commons/InputSearch";
-import NavTable from "../../commons/NavTable";
-import Table from "../../commons/Table";
+import InputSearch from "../../../commons/InputSearch";
+import NavTable from "../../../commons/NavTable";
+import Table from "../../../commons/Table";
 
 const TableRequest = (props) => {
   return (

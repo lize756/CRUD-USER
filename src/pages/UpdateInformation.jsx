@@ -1,6 +1,6 @@
 import React from "react";
-import GeneralTittle from "../mainContainer/GeneralTitle";
-import UpdateContainer from "./UpdateContainer";
+import GeneralTittle from "../components/mainContainer/GeneralTitle";
+import UpdateContainer from "../components/companyView/updateInformation/UpdateContainer";
 
 const UpdateInformation = () => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
-import GeneralTitle from "../mainContainer/GeneralTitle";
+import GeneralTitle from "../components/mainContainer/GeneralTitle";
 
-import ShowContainer from "./ShowContainer";
+import ShowContainer from "../components/companyView/showRequest/ShowContainer";
 
 const ShowRequest = () => {
   return (
