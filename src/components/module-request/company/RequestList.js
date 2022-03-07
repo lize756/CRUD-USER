@@ -58,7 +58,6 @@ const RequestList = () => {
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
-                <TableCell>Id</TableCell>
                 <TableCell align="right">Facultad</TableCell>
                 <TableCell align="right">Carrera</TableCell>
                 <TableCell align="right">Periodo Académico </TableCell>
@@ -70,7 +69,7 @@ const RequestList = () => {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 100]}
+          rowsPerPageOptions={[5, 10, 15]}
           component="div"
           count={requestList.length}
           rowsPerPage={rowsPerPage}
