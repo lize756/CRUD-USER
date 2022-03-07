@@ -8,9 +8,11 @@ import {
   TableRow,
   TableBody,
   TablePagination,
+  Button,
 } from "@mui/material";
 import axios from "../../../config/axios";
 import Request from "./Request";
+import "./StylesCompany.css";
 
 const RequestList = () => {
   //lista de solicitudes de practica
@@ -78,6 +80,10 @@ const RequestList = () => {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
+
+      <Button className="button-create" variant="contained">
+        Crear Solicitud
+      </Button>
     </div>
   );
 };
