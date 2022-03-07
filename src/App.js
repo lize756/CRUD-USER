@@ -1,14 +1,12 @@
 import { Provider } from "react-redux";
 import "./App.css";
 
-import Main from "./routes/Main.jsx";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
+import MainCompany from "./config/routes/MainCompany";
 
 function App() {
   return (
     <div>
-      <Main />
+      <MainCompany />
     </div>
   );
 }
