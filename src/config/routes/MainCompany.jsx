@@ -8,8 +8,8 @@ const MainCompany = () => {
     <>
       <Router>
         <Routes>
-          <Route path="/company" element={<Home />}>
-            <Route path="request" element={<RequestList />} />
+          <Route path="/company" element={<Home name ="PORTAL DE SOLICITUDES PRACTICANTES DE LA UNIVERSIDAD ICESI"/>}>
+          <Route path="request" element={<RequestList />} />
           </Route>
         </Routes>
       </Router>

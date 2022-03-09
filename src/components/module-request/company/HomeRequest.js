@@ -5,7 +5,7 @@ import { Link as RouterLink, Outlet } from "react-router-dom";
 import Link from "@mui/material/Link";
 import "./StylesCompany.css";
 
-const HomeRequest = () => {
+const HomeRequest = (props) => {
   return (
     <>
       <div className="home-container">
@@ -35,7 +35,7 @@ const HomeRequest = () => {
           <Link href="#"> Bolsa de Empleo </Link>
         </nav>
 
-        <h2>PORTAL DE SOLICITUDES PRACTICANTES DE LA UNIVERSIDAD ICESI</h2>
+        <h2>{props.name}</h2>
 
         <Outlet />
       </div>
