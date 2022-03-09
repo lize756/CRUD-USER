@@ -27,9 +27,12 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "start": "react-scripts start",
+    "start:dev": "react-scripts start --watch",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:watch": "react-scripts test --watch",
     "eject": "react-scripts eject",
     "server": "json-server -p 3001 --watch api/requests.json"
   },

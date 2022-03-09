@@ -1,18 +1,16 @@
 import React from "react";
-import Banner from "../../commons/Banner";
-import Navbar from "../../commons/Navbar";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import RequestList from "../../components/module-request/company/RequestList";
+import Home from "../../components/module-request/company/HomeRequest";
 
 const MainCompany = () => {
   return (
     <>
       <Router>
-        <Banner />
-
         <Routes>
-          <Route path="/request" element={<RequestList />} />
+          <Route path="/company" element={<Home name ="PORTAL DE SOLICITUDES PRACTICANTES DE LA UNIVERSIDAD ICESI"/>}>
+          <Route path="request" element={<RequestList />} />
+          </Route>
         </Routes>
       </Router>
     </>
