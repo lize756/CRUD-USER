@@ -12,3 +12,8 @@ h2 {
   width: auto;
   color: white;
 }
+
+.search-component {
+  padding-top: 10px;
+  padding-bottom: 25px;
+}
