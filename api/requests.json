@@ -30,10 +30,17 @@
     },
     {
       "id": 5,
-      "faculty": "faculty-5",
-      "career": "career-5",
-      "fechaInicio": "acadperiod-5",
-      "studnumber": 7
+      "faculty": "Ingenieria de Sistema",
+      "career": "Sistemas",
+      "studnumber": 7,
+      "fechaInicio": "2022-12-12",
+      "area": "Departamento 1 ",
+      "funciones": "Funcion 1 ",
+      "competencias": "Competencia 5",
+      "tipoVinculacion": "Normal",
+      "duracion": "12 Meses",
+      "bonificacion": "$850.000",
+      "beneficios": "Beneficio 1"
     },
     {
       "id": 6,
