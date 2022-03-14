@@ -62,6 +62,20 @@
       "career": "career-9",
       "acadperiod": "acadperiod-9",
       "studnumber": 1
+    },
+    {
+      "id": 6370,
+      "faculty": "Ingenieria de Sistema",
+      "career": "Sistemas",
+      "studnumber": "14",
+      "acadperiod": "2022-12-2",
+      "area": "Area random",
+      "funciones": "Funciones 123",
+      "compentenciasClaves": "",
+      "tipoVinculacion": "Normal",
+      "duracion": "6 Meses",
+      "bonificacion": "1200000",
+      "beneficios": "Beneficio 1"
     }
   ]
 }

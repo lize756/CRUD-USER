@@ -13,7 +13,7 @@ import {
 import axios from "../../../config/axios";
 import Request from "./Request";
 import Search from "./RequestSearch";
-import Create from "./RequestCreate";
+import Update from "./RequestUpdate";
 import { useNavigate } from "react-router";
 import "./StylesCompany.css";
 
@@ -25,6 +25,8 @@ const RequestList = () => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
+  const [requestEdit, setRequestEdit] = useState({});
+
   //navigate
   let navigate = useNavigate();
 
@@ -32,7 +34,6 @@ const RequestList = () => {
   //Axios
   useEffect(() => {
     axios.get("requests").then((res) => setRequestList(res.data));
-    console.log(requestList);
   }, []);
 
   //Metodo delete
@@ -44,10 +45,11 @@ const RequestList = () => {
     });
   };
 
-  //Metodo add
-  const addRequest = (request) => {
-    console.log(request);
-    console.log("Llegue a add");
+  //Metodo edit
+  const editRequest = (request) => {
+    setRequestEdit(request);
+    <Update request={requestEdit} />;
+    navigate("/company/update");
   };
 
   //Metodos handleChange
@@ -70,7 +72,12 @@ const RequestList = () => {
     return requestList
       .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
       .map((request) => (
-        <Request request={request} key={request.id} delRequest={delRequest} />
+        <Request
+          request={request}
+          key={request.id}
+          delRequest={delRequest}
+          editRequest={editRequest}
+        />
       ));
   };
 
@@ -103,7 +110,6 @@ const RequestList = () => {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
-
       <Button sx={{ mt: 5 }} variant="contained" onClick={handleClick}>
         Crear Solicitud
       </Button>

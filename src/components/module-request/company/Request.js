@@ -3,7 +3,7 @@ import { TableCell, TableRow } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
-const Request = ({ request, delRequest }) => {
+const Request = ({ request, delRequest, editRequest }) => {
   return (
     <TableRow hover role="checkbox" tabIndex={-1} key={request.id}>
       <TableCell align="right">{request.faculty}</TableCell>
@@ -20,9 +20,9 @@ const Request = ({ request, delRequest }) => {
         &nbsp;
         <EditIcon
           color="primary"
-          //onClick={() => {
-          // editRequest(request);
-          //}}
+          onClick={() => {
+            editRequest(request);
+          }}
         />
       </TableCell>
     </TableRow>

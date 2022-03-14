@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Autocomplete, TextField, Button } from "@mui/material";
 import { useNavigate } from "react-router";
 import { makeStyles, Box, Container } from "@material-ui/core";
@@ -31,11 +31,12 @@ const careers = [
   { title: "Medicina", label: "Medicina" },
 ];
 
-const RequestCreate = () => {
+//forma de enviar primero el nombre del objeto que se recibe = {el nombre que se envia}
+const RequestUpdate = (request) => {
   const classes = useStyles();
   let navigate = useNavigate();
 
-  const [data, setData] = useState({
+  const [editRequest, setEditRequest] = useState({
     area: "",
     studnumber: 0,
     fechaInicio: "",
@@ -47,35 +48,33 @@ const RequestCreate = () => {
     beneficios: "",
   });
 
-  const [carrera, setCarrera] = useState(" ");
+  useEffect(() => {
+    setEditRequest(request);
+  }, [request]);
+
+  console.log(request.area);
 
   const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    setEditRequest({ ...editRequest, [e.target.name]: e.target.value });
   };
 
-  const handleSelect = (e) => {
-    setCarrera(e.target.value);
-  };
-  //Metodo add
-  const addRequest = (e) => {
+  //Metodo put
+  const putRequest = (e) => {
     e.preventDefault();
     const request = {
-      id: Math.floor(Math.random() * 10000),
-      faculty: "Ingenieria de Sistema",
-      career: "Sistemas",
-      studnumber: data.studnumber,
-      acadperiod: data.fechaInicio,
-      area: data.area,
-      funciones: data.funciones,
-      compentenciasClaves: data.compentenciasClaves,
-      tipoVinculacion: data.tipoVinculacion,
-      duracion: data.duracion,
-      bonificacion: data.bonificacion,
-      beneficios: data.beneficios,
+      studnumber: editRequest.studnumber,
+      acadperiod: editRequest.fechaInicio,
+      area: editRequest.area,
+      funciones: editRequest.funciones,
+      compentenciasClaves: editRequest.compentenciasClaves,
+      tipoVinculacion: editRequest.tipoVinculacion,
+      duracion: editRequest.duracion,
+      bonificacion: editRequest.bonificacion,
+      beneficios: editRequest.beneficios,
     };
 
     axios
-      .post("requests/", request)
+      .put("requests/", request)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
@@ -85,7 +84,7 @@ const RequestCreate = () => {
   return (
     <Container maxWidth="100%">
       <Box sx={{ bgcolor: "#F2F6FE" }}>
-        <form className={classes.root} onSubmit={addRequest}>
+        <form className={classes.root} onSubmit={putRequest}>
           <Autocomplete
             multiple
             fullWidth
@@ -93,7 +92,6 @@ const RequestCreate = () => {
             getOptionLabel={(option) => option.title}
             name="carreras"
             value={undefined}
-            onChange={handleSelect}
             filterSelectedOptions
             renderInput={(params) => (
               <TextField
@@ -108,6 +106,7 @@ const RequestCreate = () => {
             id="outlined-textarea"
             name="area"
             label="Area o Departamento"
+            value={request.area}
             multiline
             onChange={handleChange}
           />
@@ -117,12 +116,14 @@ const RequestCreate = () => {
             placeholder="12"
             label="Número de Estudiantes"
             multiline
+            value={request.studnumber}
             onChange={handleChange}
           />
           <TextField
             name="fechaInicio"
             placeholder="yyyy-mm-dd"
             label="Fecha de Inicio"
+            value={request.fechaInicio}
             multiline
             onChange={handleChange}
           />
@@ -130,6 +131,7 @@ const RequestCreate = () => {
             name="funciones"
             multiline
             label="Funciones Principales"
+            value={request.funciones}
             rows={8}
             onChange={handleChange}
           />
@@ -137,6 +139,7 @@ const RequestCreate = () => {
             name="CompentenciasClaves"
             multiline
             label="Competencis Claves del Éxito"
+            value={request.compentenciasClaves}
             rows={8}
             onChange={handleChange}
           />
@@ -144,28 +147,32 @@ const RequestCreate = () => {
             name="tipoVinculacion"
             multiline
             label="Tipo de Vinculación"
+            value={request.tipoVinculacion}
             onChange={handleChange}
           />
           <TextField
             name="duracion"
             label="Duración de la Practica"
+            value={request.duracion}
             multiline
             onChange={handleChange}
           />
           <TextField
             name="bonificacion"
             label="Valor de Bonificación"
+            value={request.bonificacion}
             multiline
             onChange={handleChange}
           />
           <TextField
             name="beneficios"
             label="Otros Beneficios"
+            value={request.beneficios}
             multiline
             onChange={handleChange}
           />
           <Button sx={{ mt: 5, pr: 3 }} variant="contained" type="submit">
-            Crear Solicitud
+            Editar Solicitud
           </Button>
         </form>
       </Box>
@@ -173,4 +180,4 @@ const RequestCreate = () => {
   );
 };
 
-export default RequestCreate;
+export default RequestUpdate;
