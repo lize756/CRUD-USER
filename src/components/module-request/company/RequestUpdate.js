@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 
     "& .MuiTextField-root": {
       margin: theme.spacing(2),
-      width: "80%",
+      width: "90%",
     },
     "& .MuiButtonBase-root": {
       margin: theme.spacing(2),
@@ -31,8 +31,8 @@ const careers = [
   { title: "Medicina", label: "Medicina" },
 ];
 
-//forma de enviar primero el nombre del objeto que se recibe = {el nombre que se envia}
-const RequestUpdate = (request) => {
+//forma de enviar: 1. el nombre del objeto que se recibe = {el nombre que se envia}
+const RequestUpdate = ({ request }) => {
   const classes = useStyles();
   let navigate = useNavigate();
 
@@ -52,7 +52,7 @@ const RequestUpdate = (request) => {
     setEditRequest(request);
   }, [request]);
 
-  console.log(request.area);
+  console.log(request);
 
   const handleChange = (e) => {
     setEditRequest({ ...editRequest, [e.target.name]: e.target.value });
@@ -62,11 +62,14 @@ const RequestUpdate = (request) => {
   const putRequest = (e) => {
     e.preventDefault();
     const request = {
+      id: editRequest.id,
+      faculty: "Ingenieria de Sistema",
+      career: "Sistemas",
       studnumber: editRequest.studnumber,
-      acadperiod: editRequest.fechaInicio,
+      fechaInicio: editRequest.fechaInicio,
       area: editRequest.area,
       funciones: editRequest.funciones,
-      compentenciasClaves: editRequest.compentenciasClaves,
+      competencias: editRequest.competencias,
       tipoVinculacion: editRequest.tipoVinculacion,
       duracion: editRequest.duracion,
       bonificacion: editRequest.bonificacion,
@@ -74,7 +77,7 @@ const RequestUpdate = (request) => {
     };
 
     axios
-      .put("requests/", request)
+      .put("requests/" + request.id, request)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
@@ -82,7 +85,7 @@ const RequestUpdate = (request) => {
   };
 
   return (
-    <Container maxWidth="100%">
+    <Container maxWidth="lg">
       <Box sx={{ bgcolor: "#F2F6FE" }}>
         <form className={classes.root} onSubmit={putRequest}>
           <Autocomplete
@@ -106,7 +109,7 @@ const RequestUpdate = (request) => {
             id="outlined-textarea"
             name="area"
             label="Area o Departamento"
-            value={request.area}
+            value={editRequest.area}
             multiline
             onChange={handleChange}
           />
@@ -116,14 +119,14 @@ const RequestUpdate = (request) => {
             placeholder="12"
             label="Número de Estudiantes"
             multiline
-            value={request.studnumber}
+            value={editRequest.studnumber}
             onChange={handleChange}
           />
           <TextField
             name="fechaInicio"
             placeholder="yyyy-mm-dd"
             label="Fecha de Inicio"
-            value={request.fechaInicio}
+            value={editRequest.fechaInicio}
             multiline
             onChange={handleChange}
           />
@@ -131,15 +134,15 @@ const RequestUpdate = (request) => {
             name="funciones"
             multiline
             label="Funciones Principales"
-            value={request.funciones}
+            value={editRequest.funciones}
             rows={8}
             onChange={handleChange}
           />
           <TextField
-            name="CompentenciasClaves"
+            name="competencias"
             multiline
-            label="Competencis Claves del Éxito"
-            value={request.compentenciasClaves}
+            label="Competencias Claves del Éxito"
+            value={editRequest.competencias}
             rows={8}
             onChange={handleChange}
           />
@@ -147,27 +150,27 @@ const RequestUpdate = (request) => {
             name="tipoVinculacion"
             multiline
             label="Tipo de Vinculación"
-            value={request.tipoVinculacion}
+            value={editRequest.tipoVinculacion}
             onChange={handleChange}
           />
           <TextField
             name="duracion"
             label="Duración de la Practica"
-            value={request.duracion}
+            value={editRequest.duracion}
             multiline
             onChange={handleChange}
           />
           <TextField
             name="bonificacion"
             label="Valor de Bonificación"
-            value={request.bonificacion}
+            value={editRequest.bonificacion}
             multiline
             onChange={handleChange}
           />
           <TextField
             name="beneficios"
             label="Otros Beneficios"
-            value={request.beneficios}
+            value={editRequest.beneficios}
             multiline
             onChange={handleChange}
           />

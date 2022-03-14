@@ -17,15 +17,13 @@ import Update from "./RequestUpdate";
 import { useNavigate } from "react-router";
 import "./StylesCompany.css";
 
-const RequestList = () => {
+const RequestList = ({ edit }) => {
   //lista de solicitudes de practica
   const [requestList, setRequestList] = useState([]);
 
   //lista de paginacion de la tabla
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
-  const [requestEdit, setRequestEdit] = useState({});
 
   //navigate
   let navigate = useNavigate();
@@ -47,8 +45,7 @@ const RequestList = () => {
 
   //Metodo edit
   const editRequest = (request) => {
-    setRequestEdit(request);
-    <Update request={requestEdit} />;
+    edit(request);
     navigate("/company/update");
   };
 
@@ -94,7 +91,7 @@ const RequestList = () => {
                 <TableCell align="right">Carrera</TableCell>
                 <TableCell align="right">Fecha de Creación </TableCell>
                 <TableCell align="right">Número de Estudiantes </TableCell>
-                <TableCell align="scenter">Acciones</TableCell>
+                <TableCell align="center">Acciones</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>{renderList()}</TableBody>

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 
     "& .MuiTextField-root": {
       margin: theme.spacing(2),
-      width: "80%",
+      width: "90%",
     },
     "& .MuiButtonBase-root": {
       margin: theme.spacing(2),
@@ -40,7 +40,7 @@ const RequestCreate = () => {
     studnumber: 0,
     fechaInicio: "",
     funciones: "",
-    compentenciasClaves: "",
+    competencias: "",
     tipoVinculacion: "",
     duracion: "",
     bonificacion: "",
@@ -59,15 +59,17 @@ const RequestCreate = () => {
   //Metodo add
   const addRequest = (e) => {
     e.preventDefault();
+    console.log("competenciass " + data.competencias);
+
     const request = {
       id: Math.floor(Math.random() * 10000),
       faculty: "Ingenieria de Sistema",
       career: "Sistemas",
       studnumber: data.studnumber,
-      acadperiod: data.fechaInicio,
+      fechaInicio: data.fechaInicio,
       area: data.area,
       funciones: data.funciones,
-      compentenciasClaves: data.compentenciasClaves,
+      competencias: data.competencias,
       tipoVinculacion: data.tipoVinculacion,
       duracion: data.duracion,
       bonificacion: data.bonificacion,
@@ -83,7 +85,7 @@ const RequestCreate = () => {
   };
 
   return (
-    <Container maxWidth="100%">
+    <Container maxWidth="lg">
       <Box sx={{ bgcolor: "#F2F6FE" }}>
         <form className={classes.root} onSubmit={addRequest}>
           <Autocomplete
@@ -134,9 +136,9 @@ const RequestCreate = () => {
             onChange={handleChange}
           />
           <TextField
-            name="CompentenciasClaves"
+            name="competencias"
             multiline
-            label="Competencis Claves del Éxito"
+            label="Competencias Claves del Éxito"
             rows={8}
             onChange={handleChange}
           />

@@ -4,78 +4,78 @@
       "id": 1,
       "faculty": "faculty-1",
       "career": "career-1",
-      "acadperiod": "acadperiod-1",
+      "fechaInicio": "acadperiod-1",
       "studnumber": 2
     },
     {
       "id": 2,
       "faculty": "faculty-2",
       "career": "career-2",
-      "acadperiod": "acadperiod-2",
+      "fechaInicio": "acadperiod-2",
       "studnumber": 6
     },
     {
       "id": 3,
       "faculty": "faculty-3",
       "career": "career-3",
-      "acadperiod": "acadperiod-3",
+      "fechaInicio": "acadperiod-3",
       "studnumber": 2
     },
     {
       "id": 4,
       "faculty": "faculty-4",
       "career": "career-4",
-      "acadperiod": "acadperiod-4",
+      "fechaInicio": "acadperiod-4",
       "studnumber": 7
     },
     {
       "id": 5,
       "faculty": "faculty-5",
       "career": "career-5",
-      "acadperiod": "acadperiod-5",
+      "fechaInicio": "acadperiod-5",
       "studnumber": 7
     },
     {
       "id": 6,
       "faculty": "faculty-6",
       "career": "career-6",
-      "acadperiod": "acadperiod-5",
+      "fechaInicio": "acadperiod-5",
       "studnumber": 7
     },
     {
       "id": 7,
       "faculty": "faculty-7",
       "career": "career-7",
-      "acadperiod": "acadperiod-5",
+      "fechaInicio": "acadperiod-5",
       "studnumber": 7
     },
     {
       "id": 8,
       "faculty": "faculty-8",
       "career": "career-8",
-      "acadperiod": "acadperiod-8",
+      "fechaInicio": "acadperiod-8",
       "studnumber": 4
     },
     {
       "id": 9,
       "faculty": "faculty-9",
       "career": "career-9",
-      "acadperiod": "acadperiod-9",
+      "fechaInicio": "acadperiod-9",
       "studnumber": 1
     },
     {
-      "id": 6370,
+      "id": 1234,
       "faculty": "Ingenieria de Sistema",
       "career": "Sistemas",
-      "studnumber": "14",
-      "acadperiod": "2022-12-2",
-      "area": "Area random",
-      "funciones": "Funciones 123",
-      "compentenciasClaves": "",
-      "tipoVinculacion": "Normal",
-      "duracion": "6 Meses",
-      "bonificacion": "1200000",
-      "beneficios": "Beneficio 1"
+      "studnumber": "5",
+      "fechaInicio": "2022-05-10",
+      "area": "Departamento 1290",
+      "funciones": "Funciones 890",
+      "competencias": "Competencias claves 123",
+      "tipoVinculacion": "Mixto",
+      "duracion": "7 Meses",
+      "bonificacion": "$1.000.000",
+      "beneficios": "Ninguno"
     }
   ]
 }
