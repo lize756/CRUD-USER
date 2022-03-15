@@ -1,12 +1,12 @@
 import { Provider } from "react-redux";
 import "./App.css";
 import React from "react";
-import MainCompany from "./config/routes/MainCompany";
+import MainUser from "./config/routes/MainUser";
 
 function App() {
   return (
     <div>
-      <MainCompany />
+      <MainUser />
     </div>
   );
 }

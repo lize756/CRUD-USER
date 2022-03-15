@@ -3,25 +3,25 @@ import { TableCell, TableRow } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
-const Request = ({ request, delRequest, editRequest }) => {
+const User = ({ user, delUser, editUser }) => {
   return (
-    <TableRow hover role="checkbox" tabIndex={-1} key={request.id}>
-      <TableCell align="right">{request.faculty}</TableCell>
-      <TableCell align="right">{request.career}</TableCell>
-      <TableCell align="right">{request.fechaInicio}</TableCell>
-      <TableCell align="right">{request.studnumber}</TableCell>
+    <TableRow hover role="checkbox" tabIndex={-1} key={user.id}>
+      <TableCell align="right">{user.firstname}</TableCell>
+      <TableCell align="right">{user.lastname}</TableCell>
+      <TableCell align="right">{user.document}</TableCell>
+      <TableCell align="right">{user.email}</TableCell>
       <TableCell align="center">
         <DeleteIcon
           color="error"
           onClick={() => {
-            delRequest(request);
+            delUser(user);
           }}
         />{" "}
         &nbsp;
         <EditIcon
           color="primary"
           onClick={() => {
-            editRequest(request);
+            editUser(user);
           }}
         />
       </TableCell>
@@ -29,4 +29,4 @@ const Request = ({ request, delRequest, editRequest }) => {
   );
 };
 
-export default Request;
+export default User;

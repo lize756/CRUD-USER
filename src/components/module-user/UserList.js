@@ -10,16 +10,14 @@ import {
   TablePagination,
   Button,
 } from "@mui/material";
-import axios from "../../../config/axios";
-import Request from "./Request";
-import Search from "./RequestSearch";
-import Update from "./RequestUpdate";
+import axios from "../../config/axios";
+import User from "./User";
+//import Search from "./RequestSearch";
+//import Update from "./RequestUpdate";
 import { useNavigate } from "react-router";
-import "./StylesCompany.css";
 
-const RequestList = ({ edit }) => {
-  //lista de solicitudes de practica
-  const [requestList, setRequestList] = useState([]);
+const UserList = ({ edit }) => {
+  const [userList, setUserList] = useState([]);
 
   //lista de paginacion de la tabla
   const [page, setPage] = React.useState(0);
@@ -28,25 +26,24 @@ const RequestList = ({ edit }) => {
   //navigate
   let navigate = useNavigate();
 
-  //se guarda en requestlist la informacion de las solicitudes
   //Axios
   useEffect(() => {
-    axios.get("requests").then((res) => setRequestList(res.data));
+    axios.get("users").then((res) => setUserList(res.data));
   }, []);
 
   //Metodo delete
-  const delRequest = (request) => {
-    axios.delete("requests/" + request.id).then(() => {
-      axios.get("requests").then((res) => {
-        setRequestList(res.data);
+  const delUser = (user) => {
+    axios.delete("users/" + user.id).then(() => {
+      axios.get("users").then((res) => {
+        setUserList(res.data);
       });
     });
   };
 
   //Metodo edit
-  const editRequest = (request) => {
-    edit(request);
-    navigate("/company/update");
+  const editUser = (user) => {
+    edit(user);
+    navigate("/home/update");
   };
 
   //Metodos handleChange
@@ -56,8 +53,7 @@ const RequestList = ({ edit }) => {
   };
 
   const handleClick = () => {
-    navigate("/company/create");
-    //<Create addRequest={addRequest} />;
+    navigate("/home/create");
   };
 
   const handleChangePage = (event, newPage) => {
@@ -66,31 +62,24 @@ const RequestList = ({ edit }) => {
 
   //El Render
   const renderList = () => {
-    return requestList
+    return userList
       .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-      .map((request) => (
-        <Request
-          request={request}
-          key={request.id}
-          delRequest={delRequest}
-          editRequest={editRequest}
-        />
+      .map((user) => (
+        <User user={user} key={user.id} delUser={delUser} editUser={editUser} />
       ));
   };
 
   return (
     <div>
-      <Search />
-
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
         <TableContainer sx={{ maxHeight: 400 }}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
-                <TableCell align="right">Facultad</TableCell>
-                <TableCell align="right">Carrera</TableCell>
-                <TableCell align="right">Fecha de Creación </TableCell>
-                <TableCell align="right">Número de Estudiantes </TableCell>
+                <TableCell align="right">Primer Nombre</TableCell>
+                <TableCell align="right">Apellido</TableCell>
+                <TableCell align="right">Documento de Identidad </TableCell>
+                <TableCell align="right">Correo Eletronico </TableCell>
                 <TableCell align="center">Acciones</TableCell>
               </TableRow>
             </TableHead>
@@ -100,7 +89,7 @@ const RequestList = ({ edit }) => {
         <TablePagination
           rowsPerPageOptions={[5, 10, 15]}
           component="div"
-          count={requestList.length}
+          count={userList.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
@@ -108,10 +97,10 @@ const RequestList = ({ edit }) => {
         />
       </Paper>
       <Button sx={{ mt: 5 }} variant="contained" onClick={handleClick}>
-        Crear Solicitud
+        Crear Usuario
       </Button>
     </div>
   );
 };
 
-export default RequestList;
+export default UserList;
